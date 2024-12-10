@@ -1,0 +1,47 @@
+<!-- banbia.html -->
+{% extends 'base.html' %}
+
+{% block title %}
+    Quản Lí Bàn
+{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/banbia.css') }}">
+{% endblock %}
+
+
+{% block content %}
+
+    <h1>Quản lý Billiards</h1>
+    <div class="action-links">
+        <a href="/themban">Thêm Bàn mới</a>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Mã Bàn</th>
+                <th>Tên Bàn</th>
+                <th>Loại Bida</th>
+                <th>Tình Trạng</th>
+                <th>Thao Tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for table in tables %}
+            <tr>
+                <td>{{ table.MaBan }}</td>
+                <td>{{ table.TenBan }}</td>
+                <td>{{ table.LoaiBida }}</td>
+                <td>{{ table.TinhTrang }}</td>
+                <td>
+                    <a href="/xoaban/{{ table.MaBan }}" onclick="return confirm('Bạn có chắc muốn xóa bàn này?')">Xóa</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,40 @@
+<!-- sanpham.html -->
+{% extends 'base.html' %}
+
+{% block title %}
+    Quản Lí Sản Phẩm
+{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sanpham.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+{% endblock %}
+
+
+{% block content %}
+
+    <h1>Quản lý Sản phẩm</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+            <tr>
+                <td>{{ product.MaSP }}</td>
+                <td>{{ product.TenSP }}</td>
+                <td>{{ product.Gia }}</td>
+                <td>{{ product.SoLuong }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,38 @@
+<!-- them_khach_hang.html -->
+{% extends 'base.html' %}
+
+{% block title %}
+    Thêm khách hàng
+{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/them_khach_hang.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="container">
+        <h2>Thêm Khách Hàng mới</h2>
+        <form method="post">
+            <label for="TenMember">Tên Khách Hàng:</label>
+            <input type="text" id="TenMember" name="TenMember" required>
+
+            <label for="DiaChi">Địa Chỉ:</label>
+            <input type="text" id="DiaChi" name="DiaChi" required>
+
+            <label for="SoDienThoai">Số điện thoại:</label>
+            <input type="text" id="SoDienThoai" name="SoDienThoai" required>
+           
+            <label for="Email">Emali:</label>
+            <input type="text" id="Email" name="Email" required>
+
+            <input type="submit" value="Thêm Nhân Viên">
+        </form>
+        <a href="/quanlykhachhang" class="back-button">Quay lại</a>
+    </div>
+</body>
+</html>
+{% endblock %}
